@@ -17,7 +17,7 @@ import io.reactivex.disposables.Disposable;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvTitle;
     private Button btn;
-    private Observer<MovieEntity> subscriber;
+    private Observer<MovieEntity> observer;
 
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void getMovie() {
 
-        subscriber = new Observer<MovieEntity>() {
+        observer = new Observer<MovieEntity>() {
 
 
             @Override
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         };
-        HttpMethods.getInstance().getTopMovie(subscriber, 0, 10);
+        HttpMethods.getInstance().getTopMovie(observer, 0, 10);
     }
 
 
